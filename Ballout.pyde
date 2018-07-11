@@ -1,23 +1,29 @@
-xCoordinate = 50
-speed = 2
-ellipseSize = 50
 yCoordinate = 50
-yspeed = 2
+xCoordinate = 50
+yspeed = 6
+xspeed = 8
+
+ellipseSize = 50
 def setup():
     size(400,400)
 
 def draw():
     k= random(23, 50)
     background(0)
-    global xCoordinate, speed, ellipseSize, yCoordinate, yspeed
-    leftTopBoundary = ellipseSize / 2
-    rightBottomBoundary = 400 - ellipseSize / 2
-    if xCoordinate >= rightBottomBoundary  or xCoordinate <= leftTopBoundary:
-        speed = - speed
-    if yCoordinate >= rightBottomBoundary or yCoordinate <= leftTopBoundary:
-        yspeed = -yspeed
-    xCoordinate +=speed
-    yCoordinate +=speed
-    fill(230, 200, 210)
-    ellipse(xCoordinate, yCoordinate, ellipseSize, ellipseSize)
+    global xCoordinate, yCoordinate, xspeed, yspeed, ellipseSize
+    
+    leftBoundary = ellipseSize / 2
+    rightBoundary = 400 - ellipseSize / 2
+    topBoundary = ellipseSize / 2
+    bottomBoundary = 400 - ellipseSize / 2
+    xCoordinate += xspeed
+    yCoordinate += yspeed
+    
+    if xCoordinate >= rightBoundary or xCoordinate <= leftBoundary:
+        xspeed = -xspeed
+        
+    if yCoordinate >= bottomBoundary or yCoordinate <= topBoundary:
+        yspeed = - yspeed
+    fill(57, 100, 130)
+    ellipse(xCoordinate, yCoordinate, ellipseSize,ellipseSize)
     
